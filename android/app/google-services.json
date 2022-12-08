@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "642221219894",
+    "project_id": "notesify-flutter-project",
+    "storage_bucket": "notesify-flutter-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642221219894:android:dd3384c94d03893ffbf897",
+        "android_client_info": {
+          "package_name": "np.aayyyyyushcodes.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642221219894-f9db6nibr8kifp5bc0jlvtpep9sn1jo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdBvAzjc-KTE0N-7_3MrnN20Vv-16Ceno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642221219894-f9db6nibr8kifp5bc0jlvtpep9sn1jo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
