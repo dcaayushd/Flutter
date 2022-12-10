@@ -28,7 +28,7 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Register')),
+      appBar: AppBar(title: const Text('Register')),
       body: Column(
         children: [
           TextField(
@@ -76,7 +76,7 @@ class _RegisterViewState extends State<RegisterView> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('/login/', (route) => false);
             },
-            child: Text('Already Registered? Login Here!'),
+            child: const Text('Already Registered? Login Here!'),
           )
         ],
       ),

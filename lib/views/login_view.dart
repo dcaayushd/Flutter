@@ -28,7 +28,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(title: const Text('Login')),
       body: Column(
         children: [
           TextField(
@@ -72,7 +72,7 @@ class _LoginViewState extends State<LoginView> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('/register/', (route) => false);
             },
-            child: Text('Not Logged in yet? Click here to Register!'),
+            child: const Text('Not Logged in yet? Click here to Register!'),
           )
         ],
       ),
