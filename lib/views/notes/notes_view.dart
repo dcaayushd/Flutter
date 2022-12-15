@@ -25,13 +25,6 @@ class _NotesViewState extends State<NotesView> {
     super.initState();
   }
 
-//Please Remove this
-  // @override
-  // void dispose() {
-  //   _notesService.close();
-  //   super.dispose();
-  // }
-
   @override
   Widget build(
     BuildContext context,
@@ -44,7 +37,7 @@ class _NotesViewState extends State<NotesView> {
           actions: [
             IconButton(
               onPressed: (() {
-                Navigator.of(context).pushNamed(newNoteRoute);
+                Navigator.of(context).pushNamed(createOrUpdateNoteRoute);
               }),
               icon: const Icon(Icons.add),
             ),
@@ -99,6 +92,12 @@ class _NotesViewState extends State<NotesView> {
                               onDeleteNote: ((note) async {
                                 await _notesService.deleteNote(id: note.id);
                               }),
+                              onTap: (note) {
+                                Navigator.of(context).pushNamed(
+                                  createOrUpdateNoteRoute,
+                                  arguments: note,
+                                );
+                              },
                             );
                           } else {
                             return const CircularProgressIndicator();
@@ -114,36 +113,3 @@ class _NotesViewState extends State<NotesView> {
         ));
   }
 }
-
-// Future<bool> showLogOutDialog(
-//   BuildContext context,
-// ) {
-//   return showDialog<bool>(
-//       context: context,
-//       builder: (
-//         context,
-//       ) {
-//         return AlertDialog(
-//           title: const Text('Sign Out'),
-//           content: const Text(
-//             'Are you sure you want to sign out?',
-//           ),
-//           actions: [
-//             TextButton(
-//                 onPressed: () {
-//                   Navigator.of(context).pop(false);
-//                 },
-//                 child: const Text(
-//                   'Cancel',
-//                 )),
-//             TextButton(
-//                 onPressed: () {
-//                   Navigator.of(context).pop(true);
-//                 },
-//                 child: const Text(
-//                   'Log Out',
-//                 ))
-//           ],
-//         );
-//       }).then((value) => value ?? false);
-// }
