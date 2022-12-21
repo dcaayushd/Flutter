@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart' show immutable;
-
 import 'package:mynotes/services/auth/auth_user.dart';
+import 'package:equatable/equatable.dart';
 
 @immutable
 abstract class AuthState {
@@ -10,7 +8,7 @@ abstract class AuthState {
   final String? loadingText;
   const AuthState({
     required this.isLoading,
-    this.loadingText = 'Please wait a minute',
+    this.loadingText = 'Please wait a moment',
   });
 }
 
@@ -19,10 +17,20 @@ class AuthStateUninitialized extends AuthState {
       : super(isLoading: isLoading);
 }
 
-class AuthSateRegistering extends AuthState {
+class AuthStateRegistering extends AuthState {
   final Exception? exception;
-  const AuthSateRegistering({
+  const AuthStateRegistering({
     required this.exception,
+    required isLoading,
+  }) : super(isLoading: isLoading);
+}
+
+class AuthStateForgotPassword extends AuthState {
+  final Exception? exception;
+  final bool hasSentEmail;
+  const AuthStateForgotPassword({
+    required this.exception,
+    required this.hasSentEmail,
     required bool isLoading,
   }) : super(isLoading: isLoading);
 }

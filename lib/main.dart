@@ -5,6 +5,7 @@ import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/services/auth/firebase_auth_provider.dart';
+import 'package:mynotes/views/forgot_password_view.dart';
 import 'package:mynotes/views/notes/create_update_note_view.dart';
 import 'package:mynotes/views/notes/notes_view.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<AuthBloc>().add(const AuthEventInitialize());
     return BlocConsumer<AuthBloc, AuthState>(
-      listener: ((context, state) {
+      listener: (context, state) {
         if (state.isLoading) {
           LoadingScreen().show(
             context: context,
@@ -50,7 +51,7 @@ class HomePage extends StatelessWidget {
         } else {
           LoadingScreen().hide();
         }
-      }),
+      },
       builder: (context, state) {
         if (state is AuthStateLoggedIn) {
           return const NotesView();
@@ -58,10 +59,14 @@ class HomePage extends StatelessWidget {
           return const VerifyEmailView();
         } else if (state is AuthStateLoggedOut) {
           return const LoginView();
-        } else if (state is AuthSateRegistering) {
+        } else if (state is AuthStateForgotPassword) {
+          return const ForgotPasswordView();
+        } else if (state is AuthStateRegistering) {
           return const RegisterView();
         } else {
-          return const Scaffold(body: CircularProgressIndicator());
+          return const Scaffold(
+            body: CircularProgressIndicator(),
+          );
         }
       },
     );
